@@ -42,7 +42,9 @@ var Word = function (word) {
         if (this.arr2.every(this.didYouWin)) {
             console.log(colors.magenta('You won!'));
         } else {
+            if (this.guesses > 0) {
             console.log(colors.cyan('Guess again!'));
+            } 
         }
     };
     this.didYouWin = function (letter, index, array) {
