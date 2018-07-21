@@ -22,9 +22,11 @@ var schema = {
 
 prompt.start();
 var toGuess;
+var number;
 
 function newGame() {
-    toGuess = new Word(words[Math.floor(Math.random() * 10)]);
+    number = Math.floor(Math.random() * 10);
+    toGuess = new Word(words[number]);
     toGuess.print();
     stillPlaying();
 
@@ -42,7 +44,7 @@ function stillPlaying() {
             }
         });
     } else if (toGuess.underscores > 0 && toGuess.guesses < 1) {
-        console.log(colors.red('No guesses left!'));
+        console.log(colors.red(`No guesses left! The correct answer was ${words[number]}`));
         console.log(colors.zebra('New Game!'));
         newGame();
     } else if (toGuess.underscores < 1) {
